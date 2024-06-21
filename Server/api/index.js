@@ -18,7 +18,7 @@ app.get("/", (req, res) => res.send("Express on Vercel"));
 app.use(cors({
     origin: ["https://mo-engage-client.vercel.app"],
     methods: ["POST", "GET"],
-    credentials: true
+    allowedHeaders: ['Content-Type', 'Authorization'],
 }));
 app.use(express.json());
 
