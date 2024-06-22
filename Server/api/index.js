@@ -15,10 +15,15 @@ const app = express();
 app.get("/", (req, res) => res.send("Express on Vercel"));
 
 //Middlewares
+// app.use(cors({
+//     origin: ["https://mo-engage-client.vercel.app"],
+//     methods: ["POST", "GET"],
+//     allowedHeaders: ['Content-Type', 'Authorization'],
+// }));
 app.use(cors({
-    origin: ["https://mo-engage-client.vercel.app"],
-    methods: ["POST", "GET"],
-    allowedHeaders: ['Content-Type', 'Authorization'],
+    origin: 'https://your-vercel-app-url.vercel.app', // Replace with your Vercel app URL
+    methods: ['GET', 'POST'], // Adjust the methods as needed
+    credentials: true // Include cookies in CORS requests
 }));
 app.use(express.json());
 
