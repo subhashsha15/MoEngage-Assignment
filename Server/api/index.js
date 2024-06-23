@@ -10,11 +10,11 @@ const reviewRoute=require("../Routes/reviews");
 
 const cors = require('cors');
 const app = express();
-// app.get("/", (req, res) => res.send("Express on Vercel"));
+app.get("/", (req, res) => res.send("Express on Vercel"));
 
 
 //Middlewares
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+app.use(cors({ origin: "https://deploy-mern-1whq.vercel.app",methods:["POST","GET"], credentials: true }));
 app.use(express.json());
 
 const port = 3000;
