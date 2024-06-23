@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const BASE_URL = 'https://mo-engage-api.vercel.app/api/auth';
+const BASE_URL = 'http://localhost:3000/api/auth';
 export const login = createAsyncThunk('user/login', async (userData) => {
     const response = await axios.post(`${BASE_URL}/login`, userData);
     return response.data;
@@ -57,7 +57,7 @@ const userSlice = createSlice({
             .addCase(signup.rejected, (state, action) => {
                 state.error = action.error.message;
             })
-    },
+    }, 
 });
 
 export const { logout } = userSlice.actions;
