@@ -14,7 +14,7 @@ app.get("/", (req, res) => res.send("Express on Vercel"));
 
 
 //Middlewares
-app.use(cors({ origin: "https://mo-engage-assignment.vercel.app",methods:["POST","GET"], credentials: true }));
+app.use(cors({ origin: "http://localhost:5173",methods:["POST","GET"], credentials: true }));
 app.use(express.json());
 
 const port = 3000;
