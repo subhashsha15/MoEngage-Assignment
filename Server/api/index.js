@@ -16,7 +16,7 @@ app.use((req, res, next) => {
 
 //Middlewares
 app.use(cors({
-    origin: "https://mo-engage-client.vercel.app",
+    origin: "*",
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
     credentials: true
 }));
