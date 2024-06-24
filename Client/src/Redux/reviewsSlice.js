@@ -2,7 +2,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:3000/api/';
+const BASE_URL = 'https://mo-engage-api.vercel.app/api/';
 
 
 export const fetchReviews = createAsyncThunk('reviews/fetchReviews', async (breweryId, { getState }) => {
