@@ -15,6 +15,11 @@ app.get("/", (req, res) => res.send("Express on Vercel"));
 
 //Middlewares
 app.use(cors({ origin: ["https://mo-engage-client.vercel.app"],methods:["POST","GET"], credentials: true, allowedHeaders: ["Content-Type", "Authorization"] }));
+app.use(function (request, response, next) {
+  response.header("Access-Control-Allow-Origin", "*");
+  response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 app.use(express.json());
 
 const port = 3000;
