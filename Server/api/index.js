@@ -14,7 +14,7 @@ const app = express();
 
 //Middlewares
 app.use(cors({
-    origin: ["https://mo-engage-client.vercel.app"],
+    origin: ["http://mo-engage-client.vercel.app"],
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
     credentials: true,
     allowedHeaders: ["Content-Type", "Authorization"]
