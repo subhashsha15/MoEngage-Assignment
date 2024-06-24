@@ -2,15 +2,17 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require('dotenv');
 const auth = require('../middlewares/auth');
-dotenv.config();
-
+const cors = require('cors');
 const authRoute = require("../Routes/auth");
 const breweryRoute = require("../Routes/breweries");
 const reviewRoute = require("../Routes/reviews");
 
-const cors = require('cors');
-const app = express();
-
+dotenv.config();
+// Middleware to log requests
+app.use((req, res, next) => {
+    console.log(`${req.method} ${req.url}`);
+    next();
+});
 
 //Middlewares
 app.use(cors({
@@ -19,11 +21,8 @@ app.use(cors({
     credentials: true
 }));
 
-app.use(function (request, response, next) {
-    response.header("Access-Control-Allow-Origin", "*");
-    response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
+
+const app = express();
 
 app.use(express.json());
 
@@ -39,11 +38,6 @@ const connectDB = async () => {
     }
 }
 
-// Middleware to log requests
-app.use((req, res, next) => {
-    console.log(`${req.method} ${req.url}`);
-    next();
-});
 
 // Routes
 app.use('/api/auth', authRoute);
