@@ -17,6 +17,7 @@ app.use(cors({
     origin: "https://mo-engage-client.vercel.app",
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
     credentials: true,
+    "Acces-Control-Allow-Origin":"*"
 }));
 
 // app.use(function (request, response, next) {
